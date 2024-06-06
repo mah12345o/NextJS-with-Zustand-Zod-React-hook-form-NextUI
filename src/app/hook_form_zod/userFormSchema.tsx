@@ -31,18 +31,18 @@ export const userFormSchema = z.object({
     .gte(10, { message: "Plot size must be at least 10." })
     .lte(100, { message: "Plot size must be at most 100." }),
   group_name: z.string().min(1, { message: "group_name is required." }),
-  whatsapp_number: z
-    .number()
-    .min(1234567890, {
-      message: "whatsapp_number must be at least 10 digit.",
-    })
-    .max(12345678910, {
-      message: "contact_number max  10 digit.",
-    }),
-  total_unit: z
-    .number()
-    .gte(1, { message: "total_unit must be at least 1." })
-    .lte(50, { message: "total_unit must be at most 50." }),
+  // whatsapp_number: z
+  //   .number()
+  //   .min(1234567890, {
+  //     message: "whatsapp_number must be at least 10 digit.",
+  //   })
+  //   .max(12345678910, {
+  //     message: "contact_number max  10 digit.",
+  //   }),
+  // total_unit: z
+  //   .number()
+  //   .gte(1, { message: "total_unit must be at least 1." })
+  //   .lte(50, { message: "total_unit must be at most 50." }),
   contact_number: z
     .number()
     .min(1234567890, {
@@ -52,9 +52,9 @@ export const userFormSchema = z.object({
       message: "contact_number max  10 digit.",
     }),
 
-  Price_range: z
-    .array(z.number())
-    .min(10, { message: "Price range must have two values." })
-    .max(99, { message: "Price range must have two values." })
-    .refine((val) => val[0] <= val[1], { message: "Invalid price range." }),
+  // Price_range: z
+  //   .array(z.number())
+  //   .min(10, { message: "Price range must have two values." })
+  //   .max(99, { message: "Price range must have two values." })
+  //   .refine((val) => val[0] <= val[1], { message: "Invalid price range." }),
 });

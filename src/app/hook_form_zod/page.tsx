@@ -38,8 +38,6 @@ export default function Hook_form_zod() {
     formState: { errors },
   } = useForm<Inputs>({ resolver: zodResolver(userFormSchema) });
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    // data.Plot_Size = Number(data.Plot_Size);
-    // console.log(typeof data.Plot_Size);
     alert(JSON.stringify(data)), reset();
   };
 
@@ -57,6 +55,7 @@ export default function Hook_form_zod() {
               <Input
                 // value=""
                 isClearable
+                className="capitalize"
                 {...register("builder_name", { required: true })}
                 type="text"
                 placeholder="Enter builder_name"
@@ -74,7 +73,6 @@ export default function Hook_form_zod() {
             <div className="w-full">
               <h3 className="text-white text-small m-1 ">Building_name</h3>
               <Input
-                // value="sun villa"
                 isClearable
                 {...register("building_name", { required: true })}
                 type="text"
@@ -143,7 +141,7 @@ export default function Hook_form_zod() {
               )}
             </div>
 
-            <div className="w-full my-1">
+            {/*<div className="w-full my-1">
               <h3 className="text-white text-small m-1">whatsapp_number</h3>
               <Input
                 // value=""
@@ -181,7 +179,7 @@ export default function Hook_form_zod() {
                   {errors.total_unit.message}
                 </div>
               )}
-            </div>
+            </div>*/}
 
             <div className="w-full my-1">
               <h3 className="text-white text-small m-1">Plot_Size</h3>
@@ -199,7 +197,7 @@ export default function Hook_form_zod() {
                     <MdOutlinePhotoSizeSelectSmall className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
                   }
                 />
-                {/* <h3 className="text-white text-small m-1">Size</h3>
+                <h3 className="text-white text-small m-1">Size</h3>
                 <Select
                   aria-label="fyt"
                   {...register("category")}
@@ -212,7 +210,7 @@ export default function Hook_form_zod() {
                       {el}
                     </SelectItem>
                   ))}
-                </Select> */}
+                </Select>
               </div>
               {errors.Plot_Size && (
                 <div className="text-red-700 text-sm my-1 mx-2">
@@ -236,7 +234,7 @@ export default function Hook_form_zod() {
                 </div>
               )}
             </div> */}
-            <div className="w-full my-1">
+            {/* <div className="w-full my-1">
               <h3 className="text-white text-small m-1">Price_range</h3>
               <Slider
                 label="Price Range (in Lakhs)"
@@ -247,17 +245,17 @@ export default function Hook_form_zod() {
                 formatOptions={{ style: "currency", currency: "INR" }}
                 className=" text-white w-full"
               />
-              {/* {errors.Near_by_Places && (
+              {errors.Near_by_Places && (
                 <div className="text-red-700 text-sm my-1 mx-2 ">
                   {errors.Price_range.message}
                 </div>
-              )} */}
-            </div>
+              )} 
+            </div> */}
 
             <br />
           </div>
           <input
-            className="bg-slate-400 text-white p-2 rounded-xl"
+            className="bg-slate-400 text-white p-2 rounded-xl cursor-pointer"
             type="submit"
           />
         </div>
