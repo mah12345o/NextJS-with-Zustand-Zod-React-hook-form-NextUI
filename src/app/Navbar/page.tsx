@@ -15,6 +15,10 @@ const Navbar = () => {
     "/",
     "Sadcn_ui_library",
     "Zustand_state_library",
+    "Next JS",
+    "NextUI",
+    "Typescript",
+    "TailWind_css",
   ]);
   useEffect(() => {
     initial[0] === "React_hook_form_zod"
