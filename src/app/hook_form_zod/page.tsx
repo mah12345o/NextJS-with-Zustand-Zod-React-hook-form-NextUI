@@ -22,9 +22,10 @@ type Inputs = {
   Configuration: string;
   Near_by_Places: string;
   contact_number: number;
-  whatspp_number: number;
+  whatsapp_number: number;
   total_unit: number;
   Plot_Size: number;
+  Price_range: number;
   category: "";
   // NearbyLocation: string;
 };
@@ -37,10 +38,12 @@ export default function Hook_form_zod() {
     formState: { errors },
   } = useForm<Inputs>({ resolver: zodResolver(userFormSchema) });
   const onSubmit: SubmitHandler<Inputs> = (data) => {
+    // data.Plot_Size = Number(data.Plot_Size);
+    // console.log(typeof data.Plot_Size);
     alert(JSON.stringify(data)), reset();
   };
 
-  const areaName = ["Gandhinagar", "InfoCity", "GiftCity", "Sargasan", "koba"];
+  // const areaName = ["Gandhinagar", "InfoCity", "GiftCity", "Sargasan", "koba"];
   return (
     <div className="h-full bg-slate-800 pt-10">
       <form
@@ -52,7 +55,7 @@ export default function Hook_form_zod() {
             <div className="w-full">
               <h3 className="text-white text-small m-1 ">Builder_name</h3>
               <Input
-                value="mahesh kumar"
+                // value=""
                 isClearable
                 {...register("builder_name", { required: true })}
                 type="text"
@@ -71,7 +74,7 @@ export default function Hook_form_zod() {
             <div className="w-full">
               <h3 className="text-white text-small m-1 ">Building_name</h3>
               <Input
-                value="sun villa"
+                // value="sun villa"
                 isClearable
                 {...register("building_name", { required: true })}
                 type="text"
@@ -88,7 +91,7 @@ export default function Hook_form_zod() {
               <h3 className="text-white text-small m-1 ">email</h3>
               <Input
                 isClearable
-                value="maheshsuthar098@gmail.com"
+                // value="maheshsuthar098@gmail.com"
                 {...register("email", { required: true })}
                 type="text"
                 placeholder="Enter email"
@@ -106,7 +109,7 @@ export default function Hook_form_zod() {
             <div className="w-full my-1">
               <h3 className="text-white text-small m-1">Group_name</h3>
               <Input
-                value="sun"
+                // value="sun"
                 isClearable
                 {...register("group_name", { required: true })}
                 type="text"
@@ -122,9 +125,11 @@ export default function Hook_form_zod() {
             <div className="w-full my-1">
               <h3 className="text-white text-small m-1">Contact_number</h3>
               <Input
-                value="9429230712"
                 isClearable
-                {...register("contact_number", { required: true })}
+                {...register("contact_number", {
+                  required: true,
+                  valueAsNumber: true,
+                })}
                 type="number"
                 placeholder="Enter contact_number"
                 startContent={
@@ -139,20 +144,23 @@ export default function Hook_form_zod() {
             </div>
 
             <div className="w-full my-1">
-              <h3 className="text-white text-small m-1">Whatspp_number</h3>
+              <h3 className="text-white text-small m-1">whatsapp_number</h3>
               <Input
-                value="9429230712"
+                // value=""
                 isClearable
-                {...register("whatspp_number", { required: true })}
+                {...register("whatsapp_number", {
+                  required: true,
+                  valueAsNumber: true,
+                })}
                 type="number"
-                placeholder="Enter whatspp_number"
+                placeholder="Enter whatsapp_number"
                 startContent={
                   <FaWhatsapp className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
                 }
               />
-              {errors.whatspp_number && (
+              {errors.whatsapp_number && (
                 <div className="text-red-700 text-sm my-1 mx-2">
-                  {errors.whatspp_number.message}
+                  {errors.whatsapp_number.message}
                 </div>
               )}
             </div>
@@ -161,7 +169,10 @@ export default function Hook_form_zod() {
               <h3 className="text-white text-small m-1">Total_unit</h3>
               <Input
                 isClearable
-                {...register("total_unit", { required: true })}
+                {...register("total_unit", {
+                  required: true,
+                  valueAsNumber: true,
+                })}
                 type="number"
                 placeholder="Enter total_unit"
               />
@@ -178,14 +189,17 @@ export default function Hook_form_zod() {
                 <Input
                   className="w-[80%] mx-1"
                   isClearable
-                  {...register("Plot_Size", { required: true })}
+                  {...register("Plot_Size", {
+                    required: true,
+                    valueAsNumber: true,
+                  })}
                   type="number"
                   placeholder="Enter Plot_Size"
                   startContent={
                     <MdOutlinePhotoSizeSelectSmall className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
                   }
                 />
-                <h3 className="text-white text-small m-1">Size</h3>
+                {/* <h3 className="text-white text-small m-1">Size</h3>
                 <Select
                   aria-label="fyt"
                   {...register("category")}
@@ -198,7 +212,7 @@ export default function Hook_form_zod() {
                       {el}
                     </SelectItem>
                   ))}
-                </Select>
+                </Select> */}
               </div>
               {errors.Plot_Size && (
                 <div className="text-red-700 text-sm my-1 mx-2">
@@ -233,11 +247,11 @@ export default function Hook_form_zod() {
                 formatOptions={{ style: "currency", currency: "INR" }}
                 className=" text-white w-full"
               />
-              {errors.Near_by_Places && (
+              {/* {errors.Near_by_Places && (
                 <div className="text-red-700 text-sm my-1 mx-2 ">
-                  This field is required
+                  {errors.Price_range.message}
                 </div>
-              )}
+              )} */}
             </div>
 
             <br />
