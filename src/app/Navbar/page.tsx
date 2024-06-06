@@ -10,10 +10,15 @@ const Navbar = () => {
   function handelChangePage(event: ChangeEvent<HTMLSelectElement>) {
     router.push(event.target.value);
   }
-  const [initial] = useState(["hook_form_zod", "/"]);
+  const [initial] = useState([
+    "React_hook_form_zod",
+    "/",
+    "Sadcn_ui_library",
+    "Zustand_state_library",
+  ]);
   useEffect(() => {
-    initial[0] === "hook_form_zod"
-      ? router.push("hook_form_zod")
+    initial[0] === "React_hook_form_zod"
+      ? router.push("React_hook_form_zod")
       : router.push("/");
   }, []);
   return (
@@ -22,7 +27,7 @@ const Navbar = () => {
         aria-label="text"
         className="bg-slate-400 max-w-xs w-[20%]"
         onChange={handelChangePage}
-        defaultSelectedKeys={["hook_form_zod"]}
+        defaultSelectedKeys={["React_hook_form_zod"]}
       >
         {initial.map((el) => (
           <SelectItem key={el} value={el}>

@@ -30,7 +30,7 @@ type Inputs = {
   // NearbyLocation: string;
 };
 
-export default function Hook_form_zod() {
+export default function React_hook_form_zod() {
   const {
     register,
     handleSubmit,
