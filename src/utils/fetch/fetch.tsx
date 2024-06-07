@@ -8,18 +8,14 @@ interface OptionTypes {
   //   body?: any;
 }
 
-export const fetchGenerator = async ({payload}: FetchParameter) => {
-//   const { url } = parameters;
+export const fetchGenerator = async (payload: FetchParameter) => {
+  const { url } = payload;
   const headers: Record<string, string> = {
     "Content-Type": "application/json",
   };
 
-  //   const options: OptionTypes = {
-  //     method,
-  //     headers,
-  //   };
-
   const res = await fetch(url);
-  const data = res.json();
-  return data;
+  const data = await res.json();
+  console.log("fetch:", data);
+  return {data};
 };

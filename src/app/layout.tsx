@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "./globals.css";
 import Navbar from "./Navbar/page";
 import { NextUIProvider } from "@nextui-org/react";
+import { Suspense } from 'react'
+import Loading from "./loading";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,10 +21,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className="bg-black">
         <NextUIProvider>
           <Navbar />
+          <Suspense fallback={<Loading/>}>
           {children}
+      </Suspense>
+       
         </NextUIProvider>
       </body>
     </html>

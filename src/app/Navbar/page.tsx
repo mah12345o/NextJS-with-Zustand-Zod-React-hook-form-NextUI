@@ -1,7 +1,5 @@
 "use client";
 import { Select, SelectItem } from "@nextui-org/react";
-import { register } from "module";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ChangeEvent, useEffect, useState } from "react";
 
@@ -10,31 +8,17 @@ const Navbar = () => {
   function handelChangePage(event: ChangeEvent<HTMLSelectElement>) {
     router.push(event.target.value);
   }
-  const [initial] = useState([
-    "React_hook_form_zod",
-    "/",
-    "Sadcn_ui_library",
-    "Zustand_state_library",
-    "Next JS",
-    "NextUI",
-    "Typescript",
-    "TailWind_css",
-  ]);
-  useEffect(() => {
-    initial[0] === "React_hook_form_zod"
-      ? router.push("React_hook_form_zod")
-      : router.push("/");
-  }, []);
+  const [initial] = useState(["/React-hook-form-zod", "/Ecommerce/Products"]);
+
   return (
-    <div className="bg-slate-400 py-3 px-4 fixed w-full z-10">
+    <div className=" fixed z-10">
       <Select
         aria-label="text"
-        className="bg-slate-400 max-w-xs w-[20%]"
+        className=" rounded-2xl  w-[200px]"
         onChange={handelChangePage}
-        defaultSelectedKeys={["React_hook_form_zod"]}
       >
         {initial.map((el) => (
-          <SelectItem key={el} value={el}>
+          <SelectItem  key={el} value={el}>
             {el === "/" ? "Other" : el}
           </SelectItem>
         ))}
