@@ -13,6 +13,7 @@ const CardContent = ({ data }: { data: products }) => {
     productsTitle,
     productsPrice,
   } = getProductsDetails(data);
+  // new branch
   const openDetailsPopup = useStore((state) => state.toggleModal);
   return (
     <div className="text-white">
