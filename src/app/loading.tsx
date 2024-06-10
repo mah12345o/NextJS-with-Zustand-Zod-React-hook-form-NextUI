@@ -1,8 +1,6 @@
-import {Spinner} from "@nextui-org/react";
+import { Spinner } from "@nextui-org/react";
 const Loading = () => {
-  return (
-    <Spinner />
-  )
-}
+  return <Spinner className="h-lvh w-lvw" />;
+};
 
-export default Loading
+export default Loading;

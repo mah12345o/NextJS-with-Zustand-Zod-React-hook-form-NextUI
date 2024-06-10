@@ -1,3 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.show.offcanvas-backdrop {
+  opacity: 0.1;
+}
+
+.offcanvas.offcanvas-start {
+  width: fit-content;
+}
+
+.offcanvas.offcanvas-start {
+  justify-content: center;
+}
+
+@keyframes continuous-rotate {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+.rotate-element {
+  animation: continuous-rotate 5s linear infinite;
+}
