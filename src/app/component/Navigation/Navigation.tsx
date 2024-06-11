@@ -2,6 +2,7 @@ import Link from "next/link";
 interface NavigationProps {
   NavLinks: string[];
 }
+
 const Navigation: React.FC<NavigationProps> = ({ NavLinks }) => {
   return (
     <div className="p-3 bg-orange-300 flex justify-end">

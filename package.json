@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "tsc",
-    "start": "ts-node src/index.ts",
+    "dev": "next dev --experimental-https -p 3001",
+    "build": "next build",
+    "start": "next start",
     "lint": "next lint",
-    "ts": "tsc"
+    "ts": "tsc --noEmit --watch"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.5.0",

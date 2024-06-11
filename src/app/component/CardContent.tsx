@@ -1,4 +1,5 @@
 "use client";
+
 import { products } from "@/interface/page";
 import { getProductsDetails } from "@/variable/page";
 import { Card, CardHeader, CardBody, Image } from "@nextui-org/react";
