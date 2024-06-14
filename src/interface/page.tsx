@@ -7,6 +7,8 @@ export interface products {
   description: string;
   category: string;
   image: string;
+  productName: string;
+  Price: number;
 }
 
 export interface ReactChildren {
