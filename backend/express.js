@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const multer = require("multer");
 
 const dbUrl = "mongodb://localhost:27017/";
 
@@ -12,18 +11,11 @@ const express = require("express");
 const app = express();
 const port = 3004;
 
-const storage = multer.memoryStorage();
-const upload = multer({ storage: storage });
-
 const userSchema = new mongoose.Schema({
   productName: String,
   Price: Number,
   description: String,
   category: String,
-  imageData: {
-    data: Buffer, // Buffer to store image data
-    contentType: String, // MIME type of the image
-  },
 });
 
 const User = mongoose.model("User", userSchema, "users-list");
@@ -62,22 +54,10 @@ app.get("/users-list", async (request, response) => {
 const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 
-app.post("/users-list", upload.single("image"), async (req, res) => {
+app.post("/users-list", async (req, res) => {
   try {
-    const { productName, price, description, category } = req.body;
-    const imageData = {
-      data: req.file.buffer, // Buffer containing image data
-      contentType: req.file.mimetype, // MIME type of the image
-    };
-
-    const newUser = new User({
-      productName,
-      price,
-      description,
-      category,
-      imageData, // Assign image data to the imageData field
-    });
-
+    const productsData = req.body;
+    const newUser = new User(productsData);
     const savedUser = await newUser.save();
     res.status(201).json({
       message: "New user added successfully",
