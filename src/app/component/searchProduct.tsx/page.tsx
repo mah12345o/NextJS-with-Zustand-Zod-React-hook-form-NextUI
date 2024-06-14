@@ -15,10 +15,9 @@ export default function SearchData({ data }) {
   //     handleSearch("");
   //   }, []);
   return (
-    <div className="w-[83%] m-auto">
+    <div className="w-[83%] m-auto text-white">
       <Input
-        type="email"
-        label="Email"
+        type="text"
         placeholder="you@example.com"
         labelPlacement="outside"
         onChange={(e) => {
