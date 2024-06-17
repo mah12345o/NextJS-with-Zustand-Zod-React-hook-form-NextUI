@@ -15,7 +15,7 @@ export default function SearchData({ data }) {
   //     handleSearch("");
   //   }, []);
   return (
-    <div className="w-[83%] m-auto text-white">
+    <div className="w-[80%] text-white">
       <Input
         type="text"
         placeholder="you@example.com"

@@ -1,6 +1,7 @@
 import { API_URL } from "@/common/page";
 import { fetchGenerator } from "@/utils/fetch/fetch";
 import Card from "@/app/component/Card";
+import AddProductsModal from "../Modal/AddProducts";
 import SearchData, {
   ContentSection,
 } from "@/app/component/searchProduct.tsx/page";
@@ -18,7 +19,11 @@ const Product = async () => {
   console.log("pro data find ", data);
   return (
     <div className="pt-20">
-      <SearchData data={data} />
+      <div className="flex  w-10/12 m-auto">
+        <SearchData data={data} />
+        &nbsp;
+        <AddProductsModal />
+      </div>
       {/* <ContentSection /> */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 pt-12  w-10/12 m-auto">
         {data.map((el: ProductData) => (
